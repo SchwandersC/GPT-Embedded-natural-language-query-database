@@ -23,7 +23,7 @@ from openai import OpenAI
 
 
 #Open AI API key
-key ='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'
+key ='insert here'
 
 
 client = OpenAI(api_key=key)
