@@ -1,0 +1,5 @@
+pyspark
+langchain
+openai
+faiss-cpu
+python-dateutil
