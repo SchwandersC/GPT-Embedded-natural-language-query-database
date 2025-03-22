@@ -97,4 +97,98 @@ This system was built to explore:
 
 ## 📄 License
 
-MIT License
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 🧪 Example Workflow
+
+Below is a real example showing the full interaction from natural language to output:
+
+1. **Insert a Player**
+
+**Query:**  
+`insert, players, Steph Curry, 999, 30, 2018`
+
+→ Inserts a new player into the "players" table with team ID 999.
+
+---
+
+2. **Find Team's Players**
+
+**Natural Language Query:**  
+`show me all players on the aces`
+
+**Generated SQL:**  
+```sql
+SELECT p.PLAYER_NAME
+FROM players p
+INNER JOIN teams t ON p.TEAM_ID = t.TEAM_ID
+WHERE t.NICKNAME = 'Aces';
+```
+
+---
+
+3. **Update a Team Name**
+
+**Natural Language Query:**  
+`update the team name aces to vikings`
+
+**Generated SQL:**  
+```sql
+UPDATE teams
+SET NICKNAME = 'Vikings'
+WHERE NICKNAME = 'Aces';
+```
+
+---
+
+4. **Count Seasons per Player on New Team**
+
+**Natural Language Query:**  
+`show each player and the number of seasons they’ve played for the vikings. order it in ascending order`
+
+**Generated SQL:**  
+```sql
+SELECT p.PLAYER_NAME, COUNT(p.SEASON) as cnt
+FROM players p
+INNER JOIN teams t ON p.TEAM_ID = t.TEAM_ID
+WHERE t.NICKNAME = 'Vikings'
+GROUP BY p.PLAYER_NAME
+ORDER BY cnt ASC;
+```
+
+---
+
+5. **Delete a Player Record**
+
+**Natural Language Query:**  
+`delete steph curry's player record from 2018`
+
+**Generated SQL:**  
+```sql
+DELETE FROM players
+WHERE PLAYER_NAME = 'Steph Curry' AND SEASON = 2018;
+```
+
+---
+
+6. **Filter Players by Season Count**
+
+**Natural Language Query:**  
+`show all players on the vikings and the number of seasons they've played. Only show players with less than 2 seasons played.`
+
+**Generated SQL:**  
+```sql
+SELECT p.PLAYER_NAME, COUNT(p.SEASON) as cnt
+FROM players p
+INNER JOIN teams t ON p.TEAM_ID = t.TEAM_ID
+WHERE t.NICKNAME = 'Vikings'
+GROUP BY p.PLAYER_NAME
+HAVING COUNT(p.SEASON) < 2;
+```
+
+---
+
+As shown, the system handles full SQL interactivity: INSERT, UPDATE, DELETE, SELECT, JOIN, GROUP BY, ORDER BY, and HAVING — all from plain English.
+
