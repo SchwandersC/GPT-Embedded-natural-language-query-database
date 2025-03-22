@@ -4,6 +4,7 @@ from config import client
 from utils import determine_user_query
 from retrieval import setup_retriever
 from schema import DB_SCHEMA
+from sql_processor import process_sql_query
 
 def generate_prompt(nl_query, examples):
     return f"""
@@ -43,6 +44,7 @@ def main():
 
         sql = determine_user_query(client, prompt)
         print("\nGenerated SQL:\n", sql)
+        process_sql_query(sql
 
 if __name__ == "__main__":
     main()
