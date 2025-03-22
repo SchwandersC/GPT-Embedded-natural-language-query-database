@@ -111,6 +111,7 @@ Below is a real example showing the full interaction from natural language to ou
 `insert, players, Steph Curry, 999, 30, 2018`
 
 → Inserts a new player into the "players" table with team ID 999.
+![image](https://github.com/user-attachments/assets/c9582d62-a562-4171-a1a9-9edf56e8b874)
 
 ---
 
@@ -126,6 +127,7 @@ FROM players p
 INNER JOIN teams t ON p.TEAM_ID = t.TEAM_ID
 WHERE t.NICKNAME = 'Aces';
 ```
+![image](https://github.com/user-attachments/assets/685c4a7b-1cb3-4a0d-b281-d9274afff007)
 
 ---
 
@@ -140,6 +142,7 @@ UPDATE teams
 SET NICKNAME = 'Vikings'
 WHERE NICKNAME = 'Aces';
 ```
+![image](https://github.com/user-attachments/assets/e3a2dcab-9ae3-4013-83b3-92f063ec1cbb)
 
 ---
 
@@ -157,6 +160,7 @@ WHERE t.NICKNAME = 'Vikings'
 GROUP BY p.PLAYER_NAME
 ORDER BY cnt ASC;
 ```
+![image](https://github.com/user-attachments/assets/496c5479-5f24-439d-b1bd-5d8cbc4ddd0c)
 
 ---
 
@@ -170,6 +174,7 @@ ORDER BY cnt ASC;
 DELETE FROM players
 WHERE PLAYER_NAME = 'Steph Curry' AND SEASON = 2018;
 ```
+![image](https://github.com/user-attachments/assets/e3f97af1-ea3b-4a9b-8056-893e15d8bd3d)
 
 ---
 
@@ -187,6 +192,7 @@ WHERE t.NICKNAME = 'Vikings'
 GROUP BY p.PLAYER_NAME
 HAVING COUNT(p.SEASON) < 2;
 ```
+![image](https://github.com/user-attachments/assets/fc9b79d9-f85b-4421-b204-ccef7d510a76)
 
 ---
 
