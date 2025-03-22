@@ -127,7 +127,8 @@ FROM players p
 INNER JOIN teams t ON p.TEAM_ID = t.TEAM_ID
 WHERE t.NICKNAME = 'Aces';
 ```
-![image](https://github.com/user-attachments/assets/685c4a7b-1cb3-4a0d-b281-d9274afff007)
+![image](https://github.com/user-attachments/assets/24f0a1fd-d1c2-4337-a2bc-be85293c25c5)
+
 
 ---
 
